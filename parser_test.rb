@@ -41,7 +41,13 @@ class TestParser < Minitest::Test
     def test_convert_string_to_array
         p = Parser.new
         
-        r = p.convert(["false", "'bob'"], true)
-        assert r.eql? [false, "bob"]
+        r1 = p.convert(["false", "'bob'"])
+        assert r1.eql? [false, "bob"]
+
+        r2 = p.convert(["true", "'true'", "'\'d\' is for \'datto\''"])
+        assert r2.eql? [true, "true", "'d' is for 'datto'"]
+
+        r3 = p.convert(["true", ["'inside'", "false"], "'kkirk'"])
+        assert r3.eql? [true,["inside",false],"kkirk"]
     end
 end
