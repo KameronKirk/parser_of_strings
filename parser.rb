@@ -1,10 +1,12 @@
+require 'pp'
+
 class Parser
     def convert(input, print = false)
         r = nil
         
         #array case
         if input.kind_of?(Array)
-            r = input.map{|i| i.kind_of?(Array) ? convert(i) : convert('"' + i.to_s + '"')}
+            r = input.map{|i| convert(i, print)}
 
         #boolean case
         elsif input == "false"
@@ -19,8 +21,8 @@ class Parser
 
         #printing for debugging
         if print
-            puts input
-            puts r
+            pp input
+            pp r
         end
 
         return r
