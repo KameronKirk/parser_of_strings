@@ -47,7 +47,7 @@ class TestParser < Minitest::Test
         r2 = p.convert(["true", "'true'", "'\'d\' is for \'datto\''"])
         assert r2.eql? [true, "true", "'d' is for 'datto'"]
 
-        r3 = p.convert(["true", ["'inside'", "false"], "'kkirk'"])
-        assert r3.eql? [true,["inside",false],"kkirk"]
+        r3 = p.convert(["true", ["'inside'", ["false"]], "'kkirk'"])
+        assert r3.eql? [true,["inside",[false]],"kkirk"]
     end
 end
