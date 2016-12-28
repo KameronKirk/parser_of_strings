@@ -1,5 +1,11 @@
 class Parser
     def convert(input)
-        return input
+        r = nil
+        
+        if input == "false"
+            r = false
+        end
+
+        return r
     end
 end
