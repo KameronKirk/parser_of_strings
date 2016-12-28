@@ -27,4 +27,12 @@ class Parser
 
         return r
     end
+
+    p = Parser.new
+    r = p.convert(ARGV[0], false)
+    puts "Input  <<<"
+    pp ARGV[0]
+
+    puts "Output >>>"
+    pp r
 end
