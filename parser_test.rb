@@ -6,5 +6,8 @@ class TestParser < Minitest::Test
         p = Parser.new
         b = p.convert("false")
         assert false == b
+
+        b = p.convert("true")
+        assert true == b
     end
 end
