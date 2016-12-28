@@ -4,10 +4,16 @@ require './parser.rb'
 class TestParser < Minitest::Test
     def test_convert_string_to_boolean
         p = Parser.new
-        b = p.convert("false")
-        assert false == b
+        r1 = p.convert("false")
+        assert false == r1
 
-        b = p.convert("true")
-        assert true == b
+        r2 = p.convert("true")
+        assert true == r2
+    end
+
+    def test_convert_string_to_string
+        p = Parser.new
+        r = p.convert("'datto is hiring'")
+        assert r.eql? "datto is hiring"
     end
 end
