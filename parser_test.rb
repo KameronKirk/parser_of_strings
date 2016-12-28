@@ -25,7 +25,11 @@ class TestParser < Minitest::Test
         r2 = p.convert("'\\'")
         assert r2.eql? "\\"
 
-        r3 = p.convert("'\''", true)
+        r3 = p.convert("'\''")
         assert r3.eql? "'"
+
+        r4 = p.convert("'true'")
+        assert r4.eql? "true"
     end
+
 end
