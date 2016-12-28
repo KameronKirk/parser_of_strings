@@ -21,5 +21,11 @@ class TestParser < Minitest::Test
         p = Parser.new
         r1 = p.convert("'\'d\' is for \'datto\''")
         assert r1.eql? "'d' is for 'datto'"
+
+        r2 = p.convert("'\\'")
+        assert r2.eql? "\\"
+
+        r3 = p.convert("'\''", true)
+        assert r3.eql? "'"
     end
 end
