@@ -2,14 +2,18 @@ class Parser
     def convert(input, print = false)
         r = nil
         
+        #array case
+        if input.kind_of?(Array)
+            r = input.map{|i| i.kind_of?(Array) ? convert(i) : convert('"' + i.to_s + '"')}
+
         #boolean case
-        if input == "false"
+        elsif input == "false"
             r = false
         elsif input == "true"
             r = true
 
         #string case
-        elsif input[0] = '\''
+        elsif input[0] = "'"
             r = input[1..-2]
         end
 

@@ -32,4 +32,9 @@ class TestParser < Minitest::Test
         assert r4.eql? "true"
     end
 
+    def test_convert_string_to_array
+        p = Parser.new
+        r = p.convert([true, 'true'], true)
+        assert r.eql? [true, 'true']
+    end
 end
