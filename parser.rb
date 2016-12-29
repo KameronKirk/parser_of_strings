@@ -15,14 +15,16 @@ class Parser
             r = true
 
         #string case
-        elsif input[0] = "'"
+        elsif input[0] == "'"
             r = input[1..-2]
         end
 
         #printing for debugging
         if print
             pp input
+            pp input.class
             pp r
+            pp r.class
         end
 
         return r
@@ -32,7 +34,9 @@ class Parser
     r = p.convert(ARGV[0], false)
     puts "Input  <<<"
     pp ARGV[0]
+    pp ARGV[0].class
 
     puts "Output >>>"
     pp r
+    pp r.class
 end
