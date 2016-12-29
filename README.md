@@ -1,5 +1,5 @@
 # parser_of_strings
-This program is a response to the datto api team code challenge. 
+This program is a response to the team code challenge. 
 
 # To run the tests
 Simply copy the repository then from the directory run
