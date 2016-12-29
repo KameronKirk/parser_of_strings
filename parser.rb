@@ -30,13 +30,16 @@ class Parser
         return r
     end
 
-    p = Parser.new
-    r = p.convert(ARGV[0], false)
-    puts "Input  <<<"
-    pp ARGV[0]
-    pp ARGV[0].class
+    # Simple protection from running without input, for test suit.
+    if ARGV[0]
+        p = Parser.new
+        r = p.convert(ARGV[0], false)
+        puts "Input  <<<"
+        pp ARGV[0]
+        pp ARGV[0].class
 
-    puts "Output >>>"
-    pp r
-    pp r.class
+        puts "Output >>>"
+        pp r
+        pp r.class
+    end
 end
